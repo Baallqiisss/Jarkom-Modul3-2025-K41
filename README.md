@@ -1,5 +1,3 @@
-# Jarkom-Modul3-K41
-
 # Jarkom-Modul-3-2025-K41
 
 |nama kelompok                | nrp         |

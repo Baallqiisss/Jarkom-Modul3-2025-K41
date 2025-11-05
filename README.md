@@ -241,7 +241,8 @@ Raja Pelaut Aldarion, penguasa wilayah Númenor, memutuskan cara pembagian tanah
 Pastikan Durin dapat menyampaikan dekrit ini ke semua wilayah yang terhubung dengannya.
 
 ## Jawaban 
-### Aldarion (telnet 10.15.43.32 5810) 
+
+### Aldarion 
 ```bash
 apt-get update && apt-get install -y isc-dhcp-server
 ```
@@ -318,7 +319,7 @@ sysctl -p
 service isc-dhcp-relay restart
 ```
 ### Testing DHCP Client 
-### Node Gilgalad (Client Keluarga Peri) telnet 10.15.43.32 5907
+### Node Gilgalad (Client Keluarga Peri)
 
 <img width="1374" height="228" alt="Image" src="https://github.com/user-attachments/assets/2166098d-b250-4b03-9c4f-17f24996351e" />
 
@@ -326,14 +327,14 @@ service isc-dhcp-relay restart
 ip a (10.84.2.35 - 10.84.2.67)
 ```
 
-### Node Amandil (Client Keluarga Manusia) telnet 10.15.43.32 5895
+### Node Amandil (Client Keluarga Manusia)
 
 <img width="1430" height="230" alt="Image" src="https://github.com/user-attachments/assets/3fc705a7-14cf-4b1c-aed1-cb87e4d93c45" />
 
 ```bash
 ip a (10.84.1.68 - 10.84.1.94)
 ```
-### Node Khamul (Fixed Address) telnet 10.15.43.32 5898 
+### Node Khamul (Fixed Address)
 
 <img width="1387" height="240" alt="Image" src="https://github.com/user-attachments/assets/35d451bc-0ce7-4104-ac60-c23a26e73819" />
 
@@ -346,7 +347,7 @@ Untuk mengontrol arus informasi ke dunia luar (Valinor/Internet), sebuah menara 
 Minastir mengatur agar semua node (kecuali Durin) hanya dapat mengirim pesan ke luar Arda setelah melewati pemeriksaan di Minastir.
 
 ## Jawaban 
-### Node Minastir ( telnet 10.15.43.32 5905 )
+### Node Minastir 
 ```bash
 apt-get update && apt-get install -y bind9 bind9utils bind9-doc dnsutils
 ```
@@ -403,7 +404,7 @@ Setiap lokasi penting (Palantir, Elros, Pharazon, Elendil, Isildur, Anarion, Gal
 Pastikan Amdir selalu menyalin peta (master-slave) dari Erendis dengan setia.
 
 ### Jawaban
-## Node Erendis (telnet 10.15.43.32 5899)
+## Node Erendis 
 ```bash
 apt-get update && apt-get install -y bind9 bind9utils bind9-doc dnsutils
 ```
@@ -598,6 +599,7 @@ options {
     auth-nxdomain no;
 };
 ```
+
 ```bash
 service named restart
 ```
@@ -618,12 +620,14 @@ zone "3.84.10.in-addr.arpa" {
     file "/var/lib/bind/3.84.10.in-addr.arpa";
 };
 ```
+
 ```bash
 service named restart
 ```
 ### Client (misal Miriel / Celebrimbor )
 
 ### nano /etc/resolv.conf
+
 ```bash
 nameserver 10.84.3.3
 nameserver 10.84.3.4
@@ -646,20 +650,28 @@ dig -x 10.84.3.3 @10.84.3.3
 dig -x 10.84.3.4 @10.84.3.3
 ```
 3. TXT Record (pesan rahasia) Apakah domain k41.com menyimpan TXT record berisi dua pesan rahasia
-   
-<img width="972" height="1010" alt="Screenshot 2025-11-05 173412" src="https://github.com/user-attachments/assets/8afa7042-13e4-4f6b-9239-9e95143590f5" />
+
+<img width="883" height="389" alt="Screenshot 2025-11-05 174317" src="https://github.com/user-attachments/assets/fd91256a-95da-40e5-b353-e0846a4b7139" />
 
 ```bash
-dig elros.k41.com TXT 
+dig elros.k41.com TXT
+```
+### REVISI
+
+<img width="903" height="506" alt="Screenshot 2025-11-05 172505" src="https://github.com/user-attachments/assets/8e406511-82a5-42af-9e5c-b2fb85f92641" />
+
+```bash
 dig pharazon.k41.com TXT 
 ```
 ## No.6 
+
 Aldarion menetapkan aturan waktu peminjaman tanah. Ia mengatur:
 Client Dinamis Keluarga Manusia dapat meminjam tanah selama setengah jam.
 Client Dinamis Keluarga Peri hanya seperenam jam.
 Batas waktu maksimal peminjaman untuk semua adalah satu jam.
 
 ## Jawaban 
+
 ### Aldarion 
 
 ### nano /etc/dhcp/dhcpd.conf
